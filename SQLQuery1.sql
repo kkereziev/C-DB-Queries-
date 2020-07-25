@@ -83,3 +83,15 @@ alter table Users
 add constraint DF_Users_LastLoginTime
 DEFAULT GETDATE() for LastLoginTime
 
+alter table Users
+drop constraint [PK_Users_CompositeIdUsername]
+
+alter table Users
+add constraint PK_Users_CompositeId
+PRIMARY KEY(Id)
+
+Alter table Users
+add constraint CK_Users_UsernameLenght
+CHECK(LEN(Username)>=3)
+
+
